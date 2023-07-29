@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ReactJs-CoderHouse/static/css/main.da3089f3.css",
+    "main.js": "/ReactJs-CoderHouse/static/js/main.39fdd73f.js",
+    "index.html": "/ReactJs-CoderHouse/index.html",
+    "main.da3089f3.css.map": "/ReactJs-CoderHouse/static/css/main.da3089f3.css.map",
+    "main.39fdd73f.js.map": "/ReactJs-CoderHouse/static/js/main.39fdd73f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.da3089f3.css",
+    "static/js/main.39fdd73f.js"
+  ]
+}
