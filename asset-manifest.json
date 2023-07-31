@@ -1,13 +1,17 @@
 {
   "files": {
-    "main.css": "/ReactJs-CoderHouse/static/css/main.da3089f3.css",
-    "main.js": "/ReactJs-CoderHouse/static/js/main.39fdd73f.js",
+    "main.css": "/ReactJs-CoderHouse/static/css/main.a4e310a0.css",
+    "main.js": "/ReactJs-CoderHouse/static/js/main.9140c85c.js",
+    "static/media/chocolate.png": "/ReactJs-CoderHouse/static/media/chocolate.422b12631cbe177c1b05.png",
+    "static/media/cocaCola.png": "/ReactJs-CoderHouse/static/media/cocaCola.daaef370f6acf3590ddf.png",
+    "static/media/papasLays.png": "/ReactJs-CoderHouse/static/media/papasLays.67a162de7650d429254f.png",
+    "static/media/redBull.png": "/ReactJs-CoderHouse/static/media/redBull.9d342c1bb53197273b86.png",
     "index.html": "/ReactJs-CoderHouse/index.html",
-    "main.da3089f3.css.map": "/ReactJs-CoderHouse/static/css/main.da3089f3.css.map",
-    "main.39fdd73f.js.map": "/ReactJs-CoderHouse/static/js/main.39fdd73f.js.map"
+    "main.a4e310a0.css.map": "/ReactJs-CoderHouse/static/css/main.a4e310a0.css.map",
+    "main.9140c85c.js.map": "/ReactJs-CoderHouse/static/js/main.9140c85c.js.map"
   },
   "entrypoints": [
-    "static/css/main.da3089f3.css",
-    "static/js/main.39fdd73f.js"
+    "static/css/main.a4e310a0.css",
+    "static/js/main.9140c85c.js"
   ]
 }
