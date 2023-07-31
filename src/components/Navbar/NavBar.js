@@ -20,13 +20,12 @@ function NavBar() {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbar-nav" />
           <Navbar.Collapse id="navbar-nav">
-            <Nav className="me-auto">
+            <Nav className="mx-auto">
               <Nav.Link href="#equipo">Equipo</Nav.Link>
               <Nav.Link href="#tienda">Tienda</Nav.Link>
               <Nav.Link href="#contacto">Contacto</Nav.Link>
             </Nav>
-            <CartWidget />
-    
+            <CartWidget />    
           </Navbar.Collapse>
         </Container>
       </Navbar>

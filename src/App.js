@@ -1,12 +1,14 @@
 import React from "react"
 import NavBar from './components/Navbar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import Main from "./components/Main";
 
 function App(){
     return(
         <>
         <NavBar />
-        <ItemListContainer greeting={'Primera Pre-Entrega'} />
+        <ItemListContainer greeting={'Componentes II'} />
+        <Main />
         </> 
         
     )
