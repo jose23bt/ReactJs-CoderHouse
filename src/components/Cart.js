@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react'; // Asegúrate de incluir 'useContext' aquí
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { ThemeContext } from './ThemeContext';
 const Cart = ({ imageUrl, title, price, description, stock }) => {
+    const { darkMode } = useContext(ThemeContext);
     const [quantity, setQuantity] = useState(0);
     const [showDetails, setShowDetails] = useState(false);
 
@@ -38,8 +39,8 @@ const Cart = ({ imageUrl, title, price, description, stock }) => {
     };
 
     return (
-        <div className="container d-flex flex-row flex-wrap">
-            <div className="card mb-3" style={{ width: '250px', height: cardHeight }}>
+        <div className={`container d-flex flex-row flex-wrap p-2 mb-3 ${darkMode ? 'text-light' : 'text-dark'}`}>
+            <div className={`card ${darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}`} style={{ width: '250px', height: cardHeight }}>
                 <img
                     src={imageUrl}
                     className="card-img-top"

@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../ThemeContext';
 
-function ItemListContainer( {greeting} ) {
-    return(
-        <>
-        <div> <h1 className='text-center mt-5 mb-5'>{greeting}</h1> </div>
-        </>
-    )
-}
 
-export default ItemListContainer
+function ItemListContainer({ greeting }) {
+    const { darkMode } = useContext(ThemeContext);
+  
+    return (
+      <div className={`item-list-container ${darkMode ? 'dark-mode' : 'light-mode'}`}>
+        <h1 className="text-center">{greeting}</h1>
+      </div>
+    );
+  }
+  
+  export default ItemListContainer;

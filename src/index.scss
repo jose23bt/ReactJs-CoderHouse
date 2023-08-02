@@ -1,3 +1,44 @@
 .d-flex.flex-row {
     justify-content: center;
 }
+
+/* Estilos para el modo oscuro */
+.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  
+  /* Estilos para el modo claro */
+  .light-mode {
+    background-color: #f0f0f0;
+    color: #000000;
+  }
+
+  /* ItemListContainer.css */
+/* Estilos comunes para el componente */
+.item-list-container { 
+    padding: 5rem;
+}
+
+/* Estilos para el modo oscuro */
+.dark-mode .item-list-container {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Estilos para el modo claro */
+.light-mode .item-list-container {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.btn .material-icons {
+      margin: 10px;      
+      width: 1px;
+      height: 1px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+  }   
+
