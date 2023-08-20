@@ -1,21 +1,31 @@
-import React from "react"
+import React from "react";
 import { ThemeProvider } from './components/ThemeContext';
 import NavBar from './components/Navbar/NavBar';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import Main from "./Main";
 import Footer from "./Footer";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ItemListContainer from './components/items/ItemListContainer';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ItemDetailContainer from "./components/items/ItemDetailContainer";
 
 function App(){
-    return(
-        <>
+    return(       
+        <div className="App">
+        <BrowserRouter>
         <ThemeProvider>
         <NavBar />
-        <ItemListContainer greeting={'Componentes II'} />
-        <Main /> 
+            <Routes>
+                <Route path='/' element={<ItemListContainer greeting={'Productos'}/>} />
+                <Route path='/category/:categoryId' element={<ItemListContainer />} />
+                <Route path='/item/:itemId' element={<ItemDetailContainer />} /> {ItemDetailContainer}
+                <Route path='*' element={<h1>404 NOT FOUND</h1>} />
+            </Routes>          
+        <ToastContainer />   
         <Footer />       
-        </ThemeProvider>
-        </>         
+        </ThemeProvider> 
+        </BrowserRouter>
+        </div> 
     )
 }
 
-export default App
+export default App;
