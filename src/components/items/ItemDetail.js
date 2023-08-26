@@ -1,10 +1,28 @@
 import React from "react";
 import ItemCount from "./ItemCount";
 import { ThemeContext } from "../ThemeContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
     const { darkMode } = useContext(ThemeContext); 
+
+    const [quantityAdded, setQuantityAdded] = useState(0)
+
+    const { addItem } = useContext(CartContext)
+
+    const handleOnAdd = (quantity) => {
+        setQuantityAdded(quantity)
+
+        const item = {
+            id, name, price
+        }
+        
+        addItem(item, quantity)
+    }
+
+
     return (
         <article className={`CardItem card ${darkMode ? "bg-dark text-white" : ""}`} style={{ width: "300px", height: "auto" }}>
             <header>
@@ -25,7 +43,11 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
                 <p className="Info card-text">Stock disponible: {stock}</p>
             </section>
             <footer>
-                <ItemCount initial={1} stock={stock} onAdd={(quantity) => console.log("cantidad agregada")} />
+                {
+                    quantityAdded > 0 ? (
+                        <Link to='cart' className={`btn ${darkMode ? "btn-light" : "btn-dark"}`}>Terminar Compra</Link>
+                    ) : <ItemCount initial={1} stock={stock} onAdd={handleOnAdd}/>
+                }
             </footer>
         </article>
     );
