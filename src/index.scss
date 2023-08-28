@@ -66,10 +66,13 @@
   /* Aquí puedes agregar más estilos para el enlace activo si lo deseas */
 }
 
-/* Estilo para ajustar los márgenes del ItemListContainer */
-.item-list-container {
-  margin-top: 0; /* Elimina el margen superior */
-  margin-bottom: 0; /* Elimina el margen inferior */
-  padding-top: 20px; /* Agrega un espacio superior */
-  padding-bottom: 20px; /* Agrega un espacio inferior */
+
+.custom-vh {
+  height: 100vh;
+}
+
+@media (max-width: 576px) {
+  .custom-vh {
+    height: 75vh; // Ajusta el valor según tus necesidades
+  }
 }

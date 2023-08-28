@@ -1,27 +1,23 @@
-import React from "react";
-import ItemCount from "./ItemCount";
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom"; // Importa Link
 import { ThemeContext } from "../ThemeContext";
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
+import ItemCount from "./ItemCount";
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
     const { darkMode } = useContext(ThemeContext); 
-
-    const [quantityAdded, setQuantityAdded] = useState(0)
-
-    const { addItem } = useContext(CartContext)
+    const { addItem } = useContext(CartContext);
+    const [quantityAdded, setQuantityAdded] = useState(0);
 
     const handleOnAdd = (quantity) => {
-        setQuantityAdded(quantity)
+        setQuantityAdded(quantity);
 
         const item = {
-            id, name, price
-        }
+            id, img, name, price
+        };
         
-        addItem(item, quantity)
-    }
-
+        addItem(item, quantity);
+    };
 
     return (
         <article className={`CardItem card ${darkMode ? "bg-dark text-white" : ""}`} style={{ width: "300px", height: "auto" }}>
@@ -45,7 +41,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
             <footer>
                 {
                     quantityAdded > 0 ? (
-                        <Link to='cart' className={`btn ${darkMode ? "btn-light" : "btn-dark"}`}>Terminar Compra</Link>
+                        <Link to='/cart' className={`btn ${darkMode ? "btn-light" : "btn-dark"}`}>Terminar Compra</Link>
                     ) : <ItemCount initial={1} stock={stock} onAdd={handleOnAdd}/>
                 }
             </footer>

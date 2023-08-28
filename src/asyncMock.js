@@ -22,7 +22,7 @@ const products = [
         id:'3',
         name: 'Papas Lays',
         category: 'snacks',
-        img: 'https://us.123rf.com/450wm/monticello/monticello1901/monticello190100109/115360914-poznan-polonia-20-de-diciembre-de-2018-paquetes-de-papas-fritas-lay-s-popular-marca.jpg?ver=6',
+        img: 'https://st3.depositphotos.com/1063437/17194/i/450/depositphotos_171945060-stock-photo-packets-of-lays-potato-chips.jpg',
         price: 500,
         stock: 25,
         description:'papas lays 80g'
@@ -101,8 +101,12 @@ export const getProductById = (productId) => {
 }
 
 export const getProductsByCategory = (category) => {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
         const filteredProducts = products.filter(product => product.category === category);
-        resolve(filteredProducts);
+        if (filteredProducts.length > 0) {
+            resolve(filteredProducts);
+        } else {
+            reject("No se encontraron productos en esta categoría.");
+        }
     });
 };

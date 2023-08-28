@@ -9,30 +9,20 @@ const ItemListContainer = ({ greeting }) => {
     const { darkMode } = useContext(ThemeContext);
     
     const [products, setProducts] = useState([]);
-
-    const { categoryId } = useParams()
+    const { categoryId } = useParams();
 
     useEffect(() => {
-        const asyncFunc = categoryId ? getProductsByCategory : getProducts
+        const asyncFunc = categoryId ? getProductsByCategory : getProducts;
 
         asyncFunc(categoryId)
-            .then(response => {
-                setProducts(response)
-            })
-            .catch(error => {
-                console.error(error)
-            })
-    }, [categoryId])
-
-    useEffect(() => {
-        getProducts()
             .then(response => {
                 setProducts(response);
             })
             .catch(error => {
                 console.error(error);
+                // Aquí puedes realizar alguna acción si ocurre un error al obtener los productos.
             });
-    }, []);
+    }, [categoryId]);
 
     return (
         <div className={darkMode ? 'dark-mode' : 'light-mode'}>
