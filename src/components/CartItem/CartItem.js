@@ -4,7 +4,7 @@ import { ThemeContext } from "../ThemeContext";
 import "../../index.scss";
 
 const CartItem = ({ id, name, img, price, quantity }) => {
-  const { removeItem } = useContext(CartContext);
+  const { removeItem, increaseItemQuantity, decreaseItemQuantity } = useContext(CartContext);
   const { darkMode } = useContext(ThemeContext);
 
   return (
@@ -19,9 +19,23 @@ const CartItem = ({ id, name, img, price, quantity }) => {
           <div className="card-body">
             <h2 className="card-title">{name}</h2>
             <p className="card-text">${price}</p>
-            <p className="card-text">Cantidad: {quantity}</p>
+            <div className="d-flex align-items-center">
+              <button
+                className={`btn ${darkMode ? "btn-light" : "btn-secondary"} mr-2`}
+                onClick={() => decreaseItemQuantity(id)}
+              >
+                -
+              </button>
+              <p className="card-text">Cantidad: {quantity}</p>
+              <button
+                className={`btn ${darkMode ? "btn-light" : "btn-secondary"} ml-2`}
+                onClick={() => increaseItemQuantity(id)}
+              >
+                +
+              </button>
+            </div>
             <button
-              className={`btn ${darkMode ? "btn-light" : "btn-danger"}`}
+              className={`btn ${darkMode ? "btn-light" : "btn-danger"} mt-2`}
               onClick={() => removeItem(id)}
             >
               Eliminar

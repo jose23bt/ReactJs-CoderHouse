@@ -1,22 +1,41 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom"; // Importa Link
+import { Link } from "react-router-dom";
 import { ThemeContext } from "../ThemeContext";
 import { CartContext } from "../../context/CartContext";
 import ItemCount from "./ItemCount";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
     const { darkMode } = useContext(ThemeContext); 
     const { addItem } = useContext(CartContext);
     const [quantityAdded, setQuantityAdded] = useState(0);
 
+    const showToast = (message, type = 'info', duration = 3000, position = 'bottom-center') => {
+        toast(message, {
+            type,
+            autoClose: duration,
+            position,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    };
+
     const handleOnAdd = (quantity) => {
         setQuantityAdded(quantity);
+    };
 
-        const item = {
-            id, img, name, price
-        };
-        
-        addItem(item, quantity);
+    const handleFinishPurchase = () => {
+        if (quantityAdded > 0) {
+            const item = { id, img, name, price };
+            addItem(item, quantityAdded);
+            showToast(`Compra finalizada. Se agregaron ${quantityAdded} productos al carrito.`, 'success', 1000);
+        } else {
+            showToast('No se ha agregado ningún producto al carrito.', 'error', 1000);
+        }
     };
 
     return (
@@ -41,7 +60,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
             <footer>
                 {
                     quantityAdded > 0 ? (
-                        <Link to='/cart' className={`btn ${darkMode ? "btn-light" : "btn-dark"}`}>Terminar Compra</Link>
+                        <Link to='/cart' onClick={handleFinishPurchase} className={`btn ${darkMode ? "btn-light" : "btn-dark"}`}>Terminar Compra</Link>
                     ) : <ItemCount initial={1} stock={stock} onAdd={handleOnAdd}/>
                 }
             </footer>
@@ -50,3 +69,4 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
 };
 
 export default ItemDetail;
+

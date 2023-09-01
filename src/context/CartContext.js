@@ -5,15 +5,16 @@ export const CartContext = createContext({
   addItem: () => {},
   removeItem: () => {},
   clearCart: () => {},
-  totalQuantity: 0, // Agregamos totalQuantity aquí
+  increaseItemQuantity: () => {},
+  decreaseItemQuantity: () => {},
+  totalQuantity: 0,
 });
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-  const [totalQuantity, setTotalQuantity] = useState(0); // Nueva state para totalQuantity
+  const [totalQuantity, setTotalQuantity] = useState(0);
 
   useEffect(() => {
-    // Calculamos la cantidad total de productos en el carrito
     const newTotalQuantity = cart.reduce((total, product) => total + product.quantity, 0);
     setTotalQuantity(newTotalQuantity);
   }, [cart]);
@@ -35,6 +36,26 @@ export const CartProvider = ({ children }) => {
     setCart(cartUpdated);
   };
 
+  const increaseItemQuantity = (itemId) => {
+    const updatedCart = cart.map(product => {
+      if (product.id === itemId) {
+        return { ...product, quantity: product.quantity + 1 };
+      }
+      return product;
+    });
+    setCart(updatedCart);
+  };
+
+  const decreaseItemQuantity = (itemId) => {
+    const updatedCart = cart.map(product => {
+      if (product.id === itemId && product.quantity > 1) {
+        return { ...product, quantity: product.quantity - 1 };
+      }
+      return product;
+    });
+    setCart(updatedCart);
+  };
+
   const clearCart = () => {
     setCart([]);
   };
@@ -44,6 +65,8 @@ export const CartProvider = ({ children }) => {
     addItem,
     removeItem,
     clearCart,
+    increaseItemQuantity,
+    decreaseItemQuantity,
     totalQuantity,
   };
 

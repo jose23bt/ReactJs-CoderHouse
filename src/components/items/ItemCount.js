@@ -1,10 +1,8 @@
 import React, { useState, useContext } from "react";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { ThemeContext } from '../ThemeContext'; // Importa el contexto del tema
+import { ThemeContext } from '../ThemeContext';
 
 const ItemCount = ({ stock, initial, onAdd }) => {
-    const { darkMode } = useContext(ThemeContext); // Obtén el valor de darkMode del contexto
+    const { darkMode } = useContext(ThemeContext);
     const [quantity, setQuantity] = useState(initial);
 
     const increment = () => {
@@ -21,23 +19,8 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
     const handleAddToCart = () => {
         if (quantity > 0) {
-            onAdd(quantity);
+            onAdd(quantity); // Pasar la cantidad seleccionada al componente padre
             setQuantity(initial);
-
-            // Configura las opciones para el aviso
-            const toastOptions = {
-                position: "bottom-center", // Posición en la parte inferior centrada
-                autoClose: 1000, // Duración de 1 segundo
-                hideProgressBar: true, // Oculta la barra de progreso
-                closeOnClick: false, // No cerrar al hacer clic
-                pauseOnHover: false, // No pausar al pasar el cursor
-                style: { 
-                    background: darkMode ? "black" : "white", // Color de fondo en darkMode o lightMode
-                    color: darkMode ? "white" : "black" // Color del texto en darkMode o lightMode
-                }
-            };
-
-            toast.success(`Se agregaron ${quantity} productos al carrito`, toastOptions);
         }
     }
 
@@ -60,3 +43,4 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 }
 
 export default ItemCount;
+

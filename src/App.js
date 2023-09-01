@@ -18,11 +18,12 @@ function App(){
         <CartProvider>
         <NavBar />
             <Routes>
-                <Route path='/' element={<ItemListContainer greeting={'Productos'}/>} />
+                <Route path='/' element={<ItemListContainer />} />
+                <Route path="/ReactJs-CoderHouse" element={<ItemListContainer />} />
                 <Route path='/category/:categoryId' element={<ItemListContainer />} />
                 <Route path='/item/:itemId' element={<ItemDetailContainer />} /> {ItemDetailContainer}
                 <Route path='/Cart' element={<Cart />}/>
-                <Route path='*'  />
+                <Route path='*' element={"error 404"} />
             </Routes>          
         <ToastContainer />   
         <Footer />

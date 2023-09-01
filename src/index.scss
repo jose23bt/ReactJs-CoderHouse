@@ -66,13 +66,9 @@
   /* Aquí puedes agregar más estilos para el enlace activo si lo deseas */
 }
 
-
-.custom-vh {
+.empty-cart-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
-}
-
-@media (max-width: 576px) {
-  .custom-vh {
-    height: 75vh; // Ajusta el valor según tus necesidades
-  }
 }

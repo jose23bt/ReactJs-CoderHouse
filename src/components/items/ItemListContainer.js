@@ -4,34 +4,41 @@ import ItemList from './ItemList';
 import { ThemeContext } from '../ThemeContext';
 import { useParams } from 'react-router-dom';
 
-const ItemListContainer = ({ greeting }) => {
-    
+const ItemListContainer = () => {
     const { darkMode } = useContext(ThemeContext);
-    
     const [products, setProducts] = useState([]);
     const { categoryId } = useParams();
+    const [greeting, setGreeting] = useState('');
 
     useEffect(() => {
         const asyncFunc = categoryId ? getProductsByCategory : getProducts;
-
-        asyncFunc(categoryId)
-            .then(response => {
+        const fetchProducts = async () => {
+            try {
+                const response = await asyncFunc(categoryId);
                 setProducts(response);
-            })
-            .catch(error => {
+                // Establecer el saludo (greeting) aquí basado en la categoría o lo que necesites.
+                if (categoryId) {
+                    setGreeting(`${categoryId}`);
+                } else {
+                    setGreeting('Bienvenidos');
+                }
+            } catch (error) {
                 console.error(error);
-                // Aquí puedes realizar alguna acción si ocurre un error al obtener los productos.
-            });
+                // Manejo de errores
+            }
+        };
+
+        fetchProducts();
     }, [categoryId]);
 
     return (
-        <div className={darkMode ? 'dark-mode' : 'light-mode'}>
+        <div className={darkMode ? "bg-dark text-white" : ""}>
             <h1 className="text-center item-list-container">{greeting}</h1>
             <div className="item-list-container">
                 <ItemList products={products} />
             </div>
         </div>
     );
-}
+};
 
 export default ItemListContainer;
