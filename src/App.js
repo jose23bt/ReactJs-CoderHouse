@@ -25,8 +25,8 @@ function App(){
                 <Route path='/Cart' element={<Cart />}/>
                 <Route path='*' element={"error 404"} />
             </Routes>          
-        <ToastContainer />   
         <Footer />
+        <ToastContainer />   
         </CartProvider>       
         </ThemeProvider> 
         </BrowserRouter>

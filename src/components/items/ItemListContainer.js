@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { getProducts, getProductsByCategory } from '../../asyncMock';
 import ItemList from './ItemList';
 import { ThemeContext } from '../ThemeContext';
 import { useParams } from 'react-router-dom';
+import { db } from '../../firebase';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 
 const ItemListContainer = () => {
     const { darkMode } = useContext(ThemeContext);
@@ -11,17 +12,31 @@ const ItemListContainer = () => {
     const [greeting, setGreeting] = useState('');
 
     useEffect(() => {
-        const asyncFunc = categoryId ? getProductsByCategory : getProducts;
         const fetchProducts = async () => {
             try {
-                const response = await asyncFunc(categoryId);
-                setProducts(response);
-                // Establecer el saludo (greeting) aquí basado en la categoría o lo que necesites.
+                // Obtener una referencia a la colección "products" en Firestore
+                const productsCollection = collection(db, 'products');
+
+                // Construir la consulta de Firestore en función de la categoría
+                let firestoreQuery;
                 if (categoryId) {
-                    setGreeting(`${categoryId}`);
+                    firestoreQuery = query(productsCollection, where('category', '==', categoryId));
+                    setGreeting(`Productos en la categoría: ${categoryId}`);
                 } else {
+                    firestoreQuery = productsCollection;
                     setGreeting('Bienvenidos');
                 }
+
+                // Obtener los documentos que coinciden con la consulta
+                const querySnapshot = await getDocs(firestoreQuery);
+
+                // Mapear los documentos en un array de productos
+                const productData = querySnapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }));
+
+                setProducts(productData);
             } catch (error) {
                 console.error(error);
                 // Manejo de errores
