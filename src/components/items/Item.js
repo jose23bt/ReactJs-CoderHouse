@@ -11,9 +11,9 @@ const Item = ({ id, name, img, price, stock }) => {
 
 
     return (
-        <article className={`CardItem card ${darkMode ? "bg-dark text-white" : ""}`} style={{ width: "300px", height: "420px" }}>
+        <article className={`CardItem card ${darkMode ? "bg-dark text-white" : ""}`} style={{ width: "250px", height: "auto" }}>
             <picture className="card-img-top">
-                <img src={img} alt={name} className="ItemImg card-img-top" style={{ height: "100%", maxHeight: "200px"}} />
+                <img src={img} alt={name} className="ItemImg card-img-top" style={{ height: "100%", maxHeight: "100%"}} />
             </picture>
             <div className="card-body">
                 <h2 className="ItemHeader card-title">

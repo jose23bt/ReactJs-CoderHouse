@@ -14,10 +14,9 @@ const ItemListContainer = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                // Obtener una referencia a la colección "products" en Firestore
+  
                 const productsCollection = collection(db, 'products');
 
-                // Construir la consulta de Firestore en función de la categoría
                 let firestoreQuery;
                 if (categoryId) {
                     firestoreQuery = query(productsCollection, where('category', '==', categoryId));
@@ -27,10 +26,8 @@ const ItemListContainer = () => {
                     setGreeting('Bienvenidos');
                 }
 
-                // Obtener los documentos que coinciden con la consulta
                 const querySnapshot = await getDocs(firestoreQuery);
 
-                // Mapear los documentos en un array de productos
                 const productData = querySnapshot.docs.map((doc) => ({
                     id: doc.id,
                     ...doc.data(),
@@ -38,8 +35,7 @@ const ItemListContainer = () => {
 
                 setProducts(productData);
             } catch (error) {
-                console.error(error);
-                // Manejo de errores
+                console.error(error);                
             }
         };
 

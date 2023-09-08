@@ -13,7 +13,7 @@ function NavBar() {
     setDarkMode(!darkMode);
   };
 
-  // Determinar qué logo se debe mostrar según el tema actual
+  
   const logoSrc = darkMode ? logo : logoBlack;
   const icon = darkMode ? 'wb_sunny' : 'nightlight';
   const buttonVariant = darkMode ? 'outline-light' : 'outline-dark';

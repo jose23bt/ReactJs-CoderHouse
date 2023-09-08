@@ -12,11 +12,8 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         const fetchProduct = async () => {
-            try {
-                // Obtener una referencia al documento del producto en Firestore
-                const productRef = doc(db, 'products', itemId);
-
-                // Obtener el documento del producto
+            try {                
+                const productRef = doc(db, 'products', itemId);                
                 const productDoc = await getDoc(productRef);
 
                 if (productDoc.exists()) {
@@ -33,7 +30,7 @@ const ItemDetailContainer = () => {
     }, [itemId]);
 
     return (
-        <div className={darkMode ? "dark-mode" : "light-mode"} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <div className={darkMode ? "dark-mode" : "light-mode"} style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: '50px', marginBottom: '50px'}}>
             {product ? <ItemDetail {...product} /> : <p>Cargando...</p>}
         </div>
     );

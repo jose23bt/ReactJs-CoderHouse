@@ -5,11 +5,13 @@ import { CartContext } from "../../context/CartContext";
 import ItemCount from "./ItemCount";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { GoArrowLeft, GoX } from 'react-icons/go';
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
-    const { darkMode } = useContext(ThemeContext); 
+    const { darkMode } = useContext(ThemeContext);
     const { addItem } = useContext(CartContext);
     const [quantityAdded, setQuantityAdded] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
 
     const showToast = (message, type = 'info', duration = 3000, position = 'bottom-center') => {
         toast(message, {
@@ -26,13 +28,14 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
 
     const handleOnAdd = (quantity) => {
         setQuantityAdded(quantity);
+        setTotalPrice(quantity * price);
     };
 
     const handleFinishPurchase = () => {
         if (quantityAdded > 0) {
             const item = { id, img, name, price };
             addItem(item, quantityAdded);
-            showToast(`Compra finalizada. Se agregaron ${quantityAdded} productos al carrito.`, 'success', 1000);
+            showToast(`Compra finalizada. Se agregaron ${quantityAdded} productos al carrito. Precio total: $${totalPrice}`, 'success', 1000);
         } else {
             showToast('No se ha agregado ningún producto al carrito.', 'error', 1000);
         }
@@ -41,7 +44,25 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
     return (
         <article className={`CardItem card ${darkMode ? "bg-dark text-white" : ""}`} style={{ width: "300px", height: "auto" }}>
             <header>
-                <h2 className="ItemHeader card-title">{name}</h2>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <Link to={`/category/${category}`} style={{ textDecoration: 'none' }}>
+                        <button
+                            className={`btn ${darkMode ? "btn-light" : "btn-dark"}`}
+                            style={{ backgroundColor: 'transparent', border: 'none' }}
+                        >
+                            <GoArrowLeft style={{ color: darkMode ? 'white' : 'black' }} />
+                        </button>
+                    </Link>
+                    <Link to="/" style={{ textDecoration: 'none' }}>
+                        <button
+                            className={`btn ${darkMode ? "btn-light" : "btn-dark"}`}
+                            style={{ backgroundColor: 'transparent', border: 'none' }}
+                        >
+                            <GoX style={{ color: darkMode ? 'white' : 'black' }} />
+                        </button>
+                    </Link>
+                </div>
+                <h2 className="text-center ItemHeader card-title m-3">{name}</h2>
             </header>
             <picture className="card-img-top">
                 <img
@@ -56,17 +77,22 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
                 <p className="Info card-text">Descripción: {description}</p>
                 <p className="Info card-text">Precio: ${price}</p>
                 <p className="Info card-text">Stock disponible: {stock}</p>
+                {quantityAdded > 0 && (
+                    <div>
+                        <p className="Info card-text">Cantidad seleccionada: {quantityAdded}</p>
+                        <p className="Info card-text">Precio total: ${totalPrice}</p>
+                    </div>
+                )}
             </section>
-            <footer>
-                {
-                    quantityAdded > 0 ? (
-                        <Link to='/cart' onClick={handleFinishPurchase} className={`btn ${darkMode ? "btn-light" : "btn-dark"}`}>Terminar Compra</Link>
-                    ) : <ItemCount initial={1} stock={stock} onAdd={handleOnAdd}/>
-                }
+            <footer className="text-center mt-4 mb-5">
+                {quantityAdded > 0 ? (
+                    <Link to='/cart'>  
+                    <button onClick={handleFinishPurchase} className={`btn ${darkMode ? "btn-light" : "btn-dark"}`}>Agregar al Carrito</button>
+                    </Link>                    
+                ) : <ItemCount initial={1} stock={stock} onAdd={handleOnAdd} />}
             </footer>
         </article>
     );
 };
 
 export default ItemDetail;
-

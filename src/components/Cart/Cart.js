@@ -5,13 +5,14 @@ import { Link } from "react-router-dom";
 import { ThemeContext } from "../ThemeContext";
 import "../../index.scss"
 
+
 const Cart = () => {
     const { cart, clearCart, totalQuantity, increaseItemQuantity, decreaseItemQuantity } = useContext(CartContext);
-    const total = cart.reduce((acc, product) => acc + product.price * product.quantity, 0);
+    const total = parseFloat(cart.reduce((acc, product) => acc + product.price * product.quantity, 0)); 
     const { darkMode } = useContext(ThemeContext);
     const cartContainerClasses = darkMode ? "bg-dark text-white" : "";
     const cartSummaryClasses = `cart-summary mt-3 ${darkMode ? "bg-dark text-white p-3" : ""}`;
-    
+
     if (totalQuantity === 0) {
         return (
             <div className={`empty-cart-message ${cartContainerClasses} d-flex align-items-center justify-content-center custom-vh text-center`}>
@@ -26,6 +27,9 @@ const Cart = () => {
     return (
         <div className={`cart-container p-5 ${darkMode ? "bg-dark text-white" : ""}`}>
             <h2 className={`text-center mb-5 ${darkMode ? "text-white" : ""}`}>Carrito de Compras</h2>
+            <div className="text-center m-5">
+                <Link to="/" className={`btn btn-primary`}>Seguir Comprando</Link>
+            </div>
             <div className={`d-flex flex-column ${cartContainerClasses}`}>
                 {cart.map(p => (
                     <CartItem

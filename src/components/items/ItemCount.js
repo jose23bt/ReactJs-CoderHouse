@@ -19,7 +19,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
     const handleAddToCart = () => {
         if (quantity > 0) {
-            onAdd(quantity); // Pasar la cantidad seleccionada al componente padre
+            onAdd(quantity); 
             setQuantity(initial);
         }
     }
@@ -29,12 +29,12 @@ const ItemCount = ({ stock, initial, onAdd }) => {
             <div className="card-body" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <button className={`btn ${darkMode ? "btn-light" : "btn-dark"}`} onClick={decrement}>-</button>
-                    <h4 style={{ margin: '0 20px', color: darkMode ? "white" : "black" }}>{quantity}</h4>
+                    <h4 style={{ margin: '0 30px', color: darkMode ? "white" : "black" }}>{quantity}</h4>
                     <button className={`btn ${darkMode ? "btn-light" : "btn-dark"}`} onClick={increment}>+</button>
                 </div>
-                <div className="text-center mt-3">
+                <div className="text-center mt-4">
                     <button className={`btn ${darkMode ? "btn-light" : "btn-dark"}`} onClick={handleAddToCart} disabled={stock === 0}>
-                        Agregar al Carrito
+                        Seleccionar 
                     </button>
                 </div>
             </div>
