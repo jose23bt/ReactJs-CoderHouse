@@ -66,7 +66,7 @@ const Checkout = () => {
                 const orderRef = await addDoc(collection(db, "orders"), newOrder);
                 setOrderId(orderRef.id);
                 clearCart();
-                setObjOrder(newOrder); // Asignar el objeto creado a objOrder
+                setObjOrder(newOrder); 
             } else {
                 console.error("Hay productos que están fuera de stock");
             }
@@ -79,22 +79,22 @@ const Checkout = () => {
     };
 
     return (
-        <div className={`checkout-container m-2${darkMode ? "dark-mode" : ""}`}>
+        <div className={`checkout-container${darkMode ? " dark-mode" : ""}`}>
             <h1>Checkout</h1>
             {loading ? (
                 <h2>Se está generando la orden...</h2>
             ) : orderId ? (
-                <div className="card text-center m-1">
-                    <div className="card-header">
+                <div className={`card text-center ${darkMode ? " bg-dark text-white" : ""}`}>
+                    <div className={`card-header${darkMode ? " bg-secondary text-white" : ""}`}>
                         <h2>Gracias por su compra</h2>
                         <h2>El ID de su orden es: {orderId}</h2>
                     </div>
-                    <div className="card-body">
-                        <h3 className="card-title">Factura</h3>
-                        <ul className="list-group list-group-flush text-left">
+                    <div className={`card-body${darkMode ? " bg-dark text-white" : ""}`}>
+                        <h3 className={`card-title${darkMode ? " text-white" : ""}`}>Factura</h3>
+                        <ul className={`list-group list-group-flush text-left${darkMode ? " bg-dark text-white" : ""}`}>
                             {objOrder &&
                                 objOrder.items.map((item) => (
-                                    <li key={item.id} className="list-group-item">
+                                    <li key={item.id} className={`list-group-item${darkMode ? " bg-dark text-white" : ""}`}>
                                         <div className="row">
                                             <div className="col-6">
                                                 <p><strong>Producto:</strong> {item.name}</p>
@@ -108,15 +108,14 @@ const Checkout = () => {
                                     </li>
                                 ))}
                         </ul>
-                        <p className="card-text">Total: ${objOrder && objOrder.total}</p>
-                        <Link to="/" className="btn btn-primary mt-3">Volver al inicio</Link>
+                        <p className={`card-text${darkMode ? " text-white" : ""}`}>Total: ${objOrder && objOrder.total}</p>
+                        <Link to="/" className={`btn btn-primary mt-3${darkMode ? " btn-light" : ""}`}>Volver al inicio</Link>
                     </div>
                 </div>
             ) : (
                 <CheckoutForm onConfirm={createOrder} />
             )}
         </div>
-
 
     );
 };
