@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
-import { ThemeContext } from './components/ThemeContext'; // Asumimos que tienes un contexto para el dark mode
-import logo from './assets/img/logo.png'; // Asumimos que tienes una imagen del logo en modo claro
-import logoBlack from './assets/img/logoNegro.png'; // Asumimos que tienes una imagen del logo en modo oscuro
+import { ThemeContext } from './components/ThemeContext'; 
+import logo from './assets/img/logo.png';
+import logoBlack from './assets/img/logoNegro.png';
 
 const Footer = () => {
     const { darkMode } = useContext(ThemeContext);
   
-    // Determinar qué logo se debe mostrar según el tema actual
+    
     const logoSrc = darkMode ? logo : logoBlack;
   
     return (

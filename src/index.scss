@@ -72,3 +72,30 @@
   align-items: center;
   height: 100vh;
 }
+
+//carusel
+
+/* Estilos para los botones con iconos */
+.material-icons {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  background-color: transparent;
+}
+
+.material-icons:hover {
+  background-color: #ccc; /* Cambia el color de fondo al pasar el mouse sobre el botón */
+  color: #333; /* Cambia el color del icono al pasar el mouse sobre el botón */
+  border-color: #ccc; /* Cambia el color del borde al pasar el mouse sobre el botón */
+}
+
+/* Estilos para los iconos */
+.button-icon {
+  font-size: 24px; /* Tamaño del icono */
+}
