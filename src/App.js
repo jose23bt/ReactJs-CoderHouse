@@ -9,7 +9,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ItemDetailContainer from "./components/items/ItemDetailContainer";
 import { CartProvider } from "./context/CartContext";
 import Cart from "./components/Cart/Cart";
-import Checkout from "./components/Checkout";
+import Checkout from "./components/Checkout/Checkout";
 
 function App() {
     return (

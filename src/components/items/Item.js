@@ -5,7 +5,7 @@ import { useContext } from "react";
 
 
 
-const Item = ({ id, name, img, price, stock }) => {
+const Item = ({ id, name, img, price, }) => {
     const { darkMode } = useContext(ThemeContext);
     
 
@@ -21,9 +21,6 @@ const Item = ({ id, name, img, price, stock }) => {
                 </h2>
                 <p className="Info card-text">
                     Precio: ${price}
-                </p>
-                <p className="Info card-text">
-                    Stock disponible: {stock}
                 </p>
                 <footer className="ItemFooter">
                     <Link to={`/item/${id}`} className="Option">Ver Detalles</Link>

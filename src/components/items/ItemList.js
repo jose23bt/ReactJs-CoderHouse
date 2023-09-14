@@ -6,7 +6,7 @@ const ItemList = ({ products }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const { darkMode } = useContext(ThemeContext);
 
-  const slidesToShow = window.innerWidth >= 768 ? 3 : 1; // Mostrar 3 en PC, 1 en móvil
+  const slidesToShow = window.innerWidth >= 768 ? 4 : 1; // Mostrar 3 en PC, 1 en móvil
 
   useEffect(() => {
     const handleResize = () => {

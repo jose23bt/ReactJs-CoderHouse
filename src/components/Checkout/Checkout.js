@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
 import CheckoutForm from "./CheckoutForm";
 import { collection, getDocs, query, where, documentId, addDoc, Timestamp, writeBatch } from "firebase/firestore";
-import { CartContext } from "../context/CartContext";
-import { ThemeContext } from "../components/ThemeContext";
-import { db } from "../firebase";
+import { CartContext } from "../../context/CartContext";
+import { ThemeContext } from "../ThemeContext";
+import { db } from "../../firebase";
 import { Link } from "react-router-dom";
 
 const Checkout = () => {

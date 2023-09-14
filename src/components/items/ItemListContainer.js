@@ -44,24 +44,30 @@ const ItemListContainer = () => {
     }, [categoryId]);
 
     const SkeletonProduct = () => (
-        <div className={`CardItem card ${darkMode ? "bg-dark text-white" : ""}`} style={{ width: "250px", height: "auto", marginRight: "50px" }}>
-            <ContentLoader
-                speed={2}
-                width={250}
-                height={300}
-                viewBox="0 0 250 300"
-                backgroundColor="#f3f3f3"
-                foregroundColor="#ecebeb"
+        <div className="d-flex justify-content-center align-items-center">
+            <div
+                className={`CardItem card ${darkMode ? "bg-dark text-white" : ""}`}
+                style={{ width: "250px", height: "auto", marginRight: "50px" }}
             >
-                <rect x="0" y="0" rx="3" ry="3" width="250" height="10" />
-                <rect x="0" y="20" rx="3" ry="3" width="250" height="160" />
-                <rect x="0" y="190" rx="3" ry="3" width="250" height="10" />
-                <rect x="0" y="210" rx="3" ry="3" width="250" height="10" />
-                <rect x="0" y="230" rx="3" ry="3" width="250" height="10" />
-                <rect x="0" y="250" rx="3" ry="3" width="250" height="10" />
-            </ContentLoader>
+                <ContentLoader
+                    speed={2}
+                    width={250}
+                    height={300}
+                    viewBox="0 0 250 300"
+                    backgroundColor="#f3f3f3"
+                    foregroundColor="#ecebeb"
+                >
+                    <rect x="0" y="0" rx="3" ry="3" width="250" height="10" />
+                    <rect x="0" y="20" rx="3" ry="3" width="250" height="160" />
+                    <rect x="0" y="190" rx="3" ry="3" width="250" height="10" />
+                    <rect x="0" y="210" rx="3" ry="3" width="250" height="10" />
+                    <rect x="0" y="230" rx="3" ry="3" width="250" height="10" />
+                    <rect x="0" y="250" rx="3" ry="3" width="250" height="10" />
+                </ContentLoader>
+            </div>
         </div>
     );
+
 
     const groupProductsByCategory = () => {
         const groupedProducts = {};
