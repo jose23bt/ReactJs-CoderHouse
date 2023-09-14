@@ -63,5 +63,8 @@ Acceder a la Aplicación:
 
 La aplicación estará disponible en tu navegador web en la dirección http://localhost:3000. Puedes abrir tu navegador y acceder a esta URL para interactuar con LomasMarket.
 
+Mapa de los componentes dentro de la app:
+![Captura de pantalla 2023-09-14 150510](https://github.com/jose23bt/ReactJs-CoderHouse/assets/117915069/f50393e7-7646-4be4-9cd7-f5f89f043411)
+
 
 
