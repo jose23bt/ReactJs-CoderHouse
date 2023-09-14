@@ -1,3 +1,8 @@
+LOMAS MARKET - PROYECTO REACT JS CODERHOUSE
+
+![Untitled ‑ Made with FlexClip (1)](https://github.com/jose23bt/ReactJs-CoderHouse/assets/117915069/8d345cdb-83a6-4eef-892c-b5c74dafcf65)
+
+
 Descripción del Proyecto:
 
 Este proyecto de e-commerce ofrece una experiencia de compra conveniente y accesible para adquirir una amplia gama de productos de primera necesidad. Siguiendo la consigna del curso de React.js de Coder House, he desarrollado una aplicación que incluye los siguientes componentes esenciales:
