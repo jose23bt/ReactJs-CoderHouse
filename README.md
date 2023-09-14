@@ -1,5 +1,9 @@
 LOMAS MARKET - PROYECTO REACT JS CODERHOUSE
 
+enlace a video demostrativo de la app: https://firebasestorage.googleapis.com/v0/b/coderhouse-a2063.appspot.com/o/Secuencia%2001_1.mp4?alt=media&token=f08bf046-9989-40db-9d13-d92af710fc51
+
+GIF
+
 ![Untitled ‑ Made with FlexClip (1)](https://github.com/jose23bt/ReactJs-CoderHouse/assets/117915069/8d345cdb-83a6-4eef-892c-b5c74dafcf65)
 
 
