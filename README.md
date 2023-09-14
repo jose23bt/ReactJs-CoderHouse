@@ -6,9 +6,7 @@ GIF
 
 ![Untitled ‑ Made with FlexClip (1)](https://github.com/jose23bt/ReactJs-CoderHouse/assets/117915069/8d345cdb-83a6-4eef-892c-b5c74dafcf65)
 
-enlance a Mapa y breve descripcion de los componentes del proyecto:
-
-https://firebasestorage.googleapis.com/v0/b/coderhouse-a2063.appspot.com/o/ReactJs-CoderHouse.png?alt=media&token=72b1ecb2-6344-4ef5-aa2c-e9b1e2fa73d1
+enlance a Mapa y breve descripcion de los componentes del proyecto: https://firebasestorage.googleapis.com/v0/b/coderhouse-a2063.appspot.com/o/ReactJs-CoderHouse.png?alt=media&token=72b1ecb2-6344-4ef5-aa2c-e9b1e2fa73d1
 
 
 Descripción del Proyecto:
