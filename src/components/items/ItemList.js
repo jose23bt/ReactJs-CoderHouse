@@ -6,7 +6,7 @@ const ItemList = ({ products }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const { darkMode } = useContext(ThemeContext);
 
-  const slidesToShow = window.innerWidth >= 768 ? 4 : 1; // Mostrar 3 en PC, 1 en móvil
+  const slidesToShow = window.innerWidth >= 768 ? 4 : 1; 
 
   useEffect(() => {
     const handleResize = () => {
@@ -58,8 +58,8 @@ const ItemList = ({ products }) => {
   };
 
   return (
-    <div className={`m-3 `}>
-      <div className={"d-flex justify-content-center align-items-center mb-3"}>
+    <div >
+      <div className={"d-flex justify-content-center align-items-center mb-2"}>
         <div
           onClick={goToPrevSlide}
         >

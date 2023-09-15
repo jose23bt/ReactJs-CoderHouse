@@ -30,7 +30,7 @@ const ItemDetailContainer = () => {
     }, [itemId]);
 
     return (
-        <div className={darkMode ? "dark-mode" : "light-mode"} style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: '50px', marginBottom: '50px'}}>
+        <div className={darkMode ? "dark-mode" : "light-mode"} style={{ display: "flex", justifyContent: "center", alignItems: "center"}}>
             {product ? <ItemDetail {...product} /> : <p>Cargando...</p>}
         </div>
     );

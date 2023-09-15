@@ -105,7 +105,7 @@ const ItemListContainer = () => {
                 <div className="item-list-container">
                     {Object.keys(groupedProducts).map((category) => (
                         <div key={category}>
-                            <h2 className='text-center'>{category}</h2>
+                            <h2 className='text-center m-5'>{category}</h2>
                             <ItemList products={groupedProducts[category]} />
                         </div>
                     ))}

@@ -8,42 +8,50 @@ const CartItem = ({ id, name, img, price, quantity }) => {
   const { darkMode } = useContext(ThemeContext);
 
   return (
-    <article className={`card mb-3 cart-item ${darkMode ? "bg-dark text-white" : ""}`}>
+    <article className={`card mb-3 cart-item ${darkMode ? "bg-dark text-white" : ""}`} style={{ maxWidth: "900px" }}>
+      <div className="d-flex justify-content-end">
+        <button
+          className={`btn ${darkMode ? "btn-danger" : "btn-light"} align-self-start`}
+          onClick={() => removeItem(id)}
+        >
+          <i className={`material-icons ${darkMode ? "text-white" : ""}`}>delete</i> 
+        </button>
+      </div>
       <div className="row g-0">
         <div className="col-md-4 col-sm-12">
           <div className="image-container">
-            <img src={img} alt={name} className="img-fluid cart-item-img"/>
+            <img src={img} alt={name} className="img-fluid cart-item-img" />
           </div>
         </div>
-        <div className="col-md-8 col-sm-12">
-          <div className="card-body">
-            <h2 className="card-title">{name}</h2>
-            <p className="card-text">${price}</p>
-            <div className="d-flex align-items-center">
-              <button
-                className={`btn ${darkMode ? "btn-light" : "btn-secondary"} mr-2`}
-                onClick={() => decreaseItemQuantity(id)}
-              >
-                -
-              </button>
-              <p className="card-text">Cantidad: {quantity}</p>
-              <button
-                className={`btn ${darkMode ? "btn-light" : "btn-secondary"} ml-2`}
-                onClick={() => increaseItemQuantity(id)}
-              >
-                +
-              </button>
+        <div className="col-md-8 col-sm-12 p-3">
+          <div className="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h2 className={`card-title text-center ${darkMode ? "text-white" : ""}`}>{name}</h2>
+              <h2 className={`card-text text-center mb-3 ${darkMode ? "text-white" : ""}`}>${price}</h2>
             </div>
-            <button
-              className={`btn ${darkMode ? "btn-light" : "btn-danger"} mt-2`}
-              onClick={() => removeItem(id)}
-            >
-              Eliminar
-            </button>
+            <div className={`card d-flex justify-content-between align-items-center p-3 ${darkMode ? "bg-dark" : ""}`}>
+              <p className={`mb-2 ${darkMode ? "text-white" : ""}`}>Unidades</p>
+              <div className={`btn-group ${darkMode ? "text-white" : ""}`}>
+                <div
+                  className={`btn ${darkMode ? "btn-secondary" : "btn-light"}`}
+                  onClick={() => decreaseItemQuantity(id)}
+                >
+                  -
+                </div>
+                <p className={`card-text mx-2 text-center ${darkMode ? "text-white" : ""}`}>{quantity}</p>
+                <div
+                  className={`btn ${darkMode ? "btn-secondary" : "btn-light"}`}
+                  onClick={() => increaseItemQuantity(id)}
+                >
+                  +
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </article>
+
   );
 };
 

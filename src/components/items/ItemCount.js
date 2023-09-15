@@ -25,16 +25,16 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     }
 
     return (
-        <div style={{ width: "300px", height: "100px", marginBottom: '50px' }}>
-            <div className="card-body" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <div className={` ${darkMode ? "bg-dark text-white" : ""}`} style={{ width: "300px", marginBottom: '50px' }}>
+            <div className="card-body d-flex flex-column align-items-center justify-content-center">
+                <div className="d-flex align-items-center">
                     <button className={`btn ${darkMode ? "btn-light" : "btn-dark"}`} onClick={decrement}>-</button>
-                    <h4 style={{ margin: '0 30px', color: darkMode ? "white" : "black" }}>{quantity}</h4>
+                    <h4 className={`mx-3 ${darkMode ? "text-white" : ""}`}>{quantity}</h4>
                     <button className={`btn ${darkMode ? "btn-light" : "btn-dark"}`} onClick={increment}>+</button>
                 </div>
                 <div className="text-center mt-4">
                     <button className={`btn ${darkMode ? "btn-light" : "btn-dark"}`} onClick={handleAddToCart} disabled={stock === 0}>
-                        Seleccionar 
+                        Seleccionar
                     </button>
                 </div>
             </div>

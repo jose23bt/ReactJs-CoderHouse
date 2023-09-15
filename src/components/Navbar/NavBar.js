@@ -33,6 +33,7 @@ function NavBar() {
             <NavLink to={'/category/bebidas'} activeClassName="active-link" className="nav-link custom-link">bebidas</NavLink>
             <NavLink to={'/category/dulces'} activeClassName="active-link" className="nav-link custom-link">dulces</NavLink>
             <NavLink to={'/category/snacks'} activeClassName="active-link" className="nav-link custom-link">snacks</NavLink>
+            <NavLink to={'/category/almacen'} activeClassName="active-link" className="nav-link custom-link">almacen</NavLink>
           </Nav>
           <Button variant={buttonVariant} onClick={toggleTheme}>
             <i className="material-icons">{icon}</i>

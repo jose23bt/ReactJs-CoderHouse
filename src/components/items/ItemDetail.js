@@ -5,7 +5,7 @@ import { CartContext } from "../../context/CartContext";
 import ItemCount from "./ItemCount";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { GoArrowLeft, GoX } from 'react-icons/go';
+import { GoX } from 'react-icons/go';
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
     const { darkMode } = useContext(ThemeContext);
@@ -42,38 +42,29 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
     };
 
     return (
-        <article className={`CardItem card ${darkMode ? "bg-dark text-white" : ""}`} style={{ width: "300px", height: "auto" }}>
-            <header>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <Link to={`/category/${category}`} style={{ textDecoration: 'none' }}>
-                        <button
-                            className={`btn ${darkMode ? "btn-light" : "btn-dark"}`}
-                            style={{ backgroundColor: 'transparent', border: 'none' }}
-                        >
-                            <GoArrowLeft style={{ color: darkMode ? 'white' : 'black' }} />
-                        </button>
-                    </Link>
-                    <Link to="/" style={{ textDecoration: 'none' }}>
-                        <button
-                            className={`btn ${darkMode ? "btn-light" : "btn-dark"}`}
-                            style={{ backgroundColor: 'transparent', border: 'none' }}
-                        >
-                            <GoX style={{ color: darkMode ? 'white' : 'black' }} />
-                        </button>
-                    </Link>
-                </div>
-                <h2 className="text-center ItemHeader card-title m-3">{name}</h2>
-            </header>
-            <picture className="card-img-top">
+        <div className={`CardItem card ${darkMode ? "bg-dark text-white" : ""}`} style={{ maxWidth: "1000px", marginBottom: "50px", marginTop: "50px"}}>
+        <div className="card-header">
+            <div className="d-flex justify-content-end">
+                <Link to="/" style={{ textDecoration: 'none' }}>
+                    <div
+                        className={`btn ${darkMode ? "btn-light" : "btn-dark"} btn-link`}
+                    >
+                        <GoX style={{ color: darkMode ? 'white' : 'black' }} />
+                    </div>
+                </Link>
+            </div>
+        </div>
+        <div className="card-body d-md-flex align-items-center">
+            <div className="text-center">
+                <h2 className="ItemHeader card-title">{name}</h2>
                 <img
                     src={img}
                     alt={name}
-                    className="ItemImg card-img-top"
-                    style={{ objectFit: "contain", height: "auto" }}
+                    className="ItemImg img-fluid"
+                    style={{ objectFit: "contain", maxWidth: "100%" }}
                 />
-            </picture>
-            <section className="card-body">
-                <p className="Info card-text">Categoría: {category}</p>
+            </div>
+            <div className="flex-grow-1 ml-md-4 mt-3 mt-md-0" style={{ width: "240px", margin: "20px" }}>
                 <p className="Info card-text">Descripción: {description}</p>
                 <p className="Info card-text">Precio: ${price}</p>
                 <p className="Info card-text">Stock disponible: {stock}</p>
@@ -83,15 +74,16 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
                         <p className="Info card-text">Precio total: ${totalPrice}</p>
                     </div>
                 )}
-            </section>
-            <footer className="text-center mt-4 mb-5">
+            </div>
+            <div className="text-center mt-3 mt-md-0">
                 {quantityAdded > 0 ? (
-                    <Link to='/cart'>  
-                    <button onClick={handleFinishPurchase} className={`btn ${darkMode ? "btn-light" : "btn-dark"}`}>Agregar al Carrito</button>
-                    </Link>                    
+                    <Link to='/cart' style={{ textDecoration: 'none' }}>
+                        <div onClick={handleFinishPurchase} className={`btn ${darkMode ? "btn-light" : "btn-dark"}`}>Agregar al Carrito</div>
+                    </Link>
                 ) : <ItemCount initial={1} stock={stock} onAdd={handleOnAdd} />}
-            </footer>
-        </article>
+            </div>
+        </div>
+    </div>
     );
 };
 

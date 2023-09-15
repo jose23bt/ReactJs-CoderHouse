@@ -32,6 +32,7 @@
 .light-mode .item-list-container {
   background-color: #f5f5f5;
   color: #333;
+  justify-content: space-evenly;
 }
 
 .btn .material-icons {
@@ -42,6 +43,7 @@
       justify-content: center;
       align-items: center;
       font-size: 18px;
+      
   }   
 
 /* Estilos para los enlaces personalizados en el navbar */
@@ -99,3 +101,4 @@
 .button-icon {
   font-size: 24px; /* Tamaño del icono */
 }
+
