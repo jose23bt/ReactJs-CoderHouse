@@ -59,7 +59,7 @@ const ItemList = ({ products }) => {
 
   return (
     <div >
-      <div className={"d-flex justify-content-center align-items-center mb-2"}>
+      <div className={"d-flex justify-content-center align-items-center m-5"}>
         <div
           onClick={goToPrevSlide}
         >

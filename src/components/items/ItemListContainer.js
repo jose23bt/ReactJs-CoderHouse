@@ -5,13 +5,14 @@ import { useParams } from 'react-router-dom';
 import { db } from '../../firebase';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import ContentLoader from 'react-content-loader';
+import Greeting from './Greeting';
 
 const ItemListContainer = () => {
     const { darkMode } = useContext(ThemeContext);
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const { categoryId } = useParams();
-    const [greeting, setGreeting] = useState('');
+    const [, setGreeting] = useState('');
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -68,7 +69,6 @@ const ItemListContainer = () => {
         </div>
     );
 
-
     const groupProductsByCategory = () => {
         const groupedProducts = {};
 
@@ -86,14 +86,13 @@ const ItemListContainer = () => {
     const groupedProducts = groupProductsByCategory();
 
     const renderTitle = () => {
-        if (!categoryId) {
-            return <h1 className="text-center item-list-container">{greeting}</h1>;
-        }
-        return null;
+        if (!categoryId)
+            return null;
     };
 
     return (
         <div className={darkMode ? "bg-dark text-white" : ""}>
+            <Greeting />
             {renderTitle()}
             {loading ? (
                 <div className="d-flex flex-wrap justify-content-center align-items-center">
@@ -105,7 +104,11 @@ const ItemListContainer = () => {
                 <div className="item-list-container">
                     {Object.keys(groupedProducts).map((category) => (
                         <div key={category}>
-                            <h2 className='text-center m-5'>{category}</h2>
+                            <h2 className='text-center gradient-text' style={{
+                                fontSize: '28px',
+                                fontWeight: 'bold',
+                                textTransform: 'uppercase',
+                            }}>{category}</h2>
                             <ItemList products={groupedProducts[category]} />
                         </div>
                     ))}

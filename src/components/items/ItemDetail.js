@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { GoX } from 'react-icons/go';
 
-const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
+const ItemDetail = ({ id, name, img, description, price, stock }) => {
     const { darkMode } = useContext(ThemeContext);
     const { addItem } = useContext(CartContext);
     const [quantityAdded, setQuantityAdded] = useState(0);

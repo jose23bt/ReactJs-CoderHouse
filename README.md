@@ -1,3 +1,14 @@
+LOMAS MARKET - PROYECTO REACT JS CODERHOUSE
+
+enlace a video demostrativo de la app: https://firebasestorage.googleapis.com/v0/b/coderhouse-a2063.appspot.com/o/Secuencia%2001_1.mp4?alt=media&token=f08bf046-9989-40db-9d13-d92af710fc51
+
+GIF
+
+![Untitled ‑ Made with FlexClip (1)](https://github.com/jose23bt/ReactJs-CoderHouse/assets/117915069/8d345cdb-83a6-4eef-892c-b5c74dafcf65)
+
+enlance a Mapa y breve descripcion de los componentes del proyecto: https://firebasestorage.googleapis.com/v0/b/coderhouse-a2063.appspot.com/o/ReactJs-CoderHouse.png?alt=media&token=72b1ecb2-6344-4ef5-aa2c-e9b1e2fa73d1
+
+
 Descripción del Proyecto:
 
 Este proyecto de e-commerce ofrece una experiencia de compra conveniente y accesible para adquirir una amplia gama de productos de primera necesidad. Siguiendo la consigna del curso de React.js de Coder House, he desarrollado una aplicación que incluye los siguientes componentes esenciales:
@@ -54,5 +65,50 @@ Acceder a la Aplicación:
 
 La aplicación estará disponible en tu navegador web en la dirección http://localhost:3000. Puedes abrir tu navegador y acceder a esta URL para interactuar con LomasMarket.
 
+Mapa de los componentes dentro de la app:
+![Captura de pantalla 2023-09-14 150510](https://github.com/jose23bt/ReactJs-CoderHouse/assets/117915069/f50393e7-7646-4be4-9cd7-f5f89f043411)
 
+Configuración de Firebase (Base de Datos):
+
+Este proyecto utiliza Firebase como base de datos para almacenar y gestionar información importante. Para configurar Firebase en tu proyecto, sigue estos pasos:
+
+Crear un proyecto Firebase:
+
+Ve a Firebase Console y crea un nuevo proyecto.
+Configurar Firebase en tu proyecto:
+
+Descarga el archivo de configuración de Firebase (google-services.json para Android o GoogleService-Info.plist para iOS) desde la configuración de tu proyecto en Firebase Console.
+Coloca este archivo de configuración en la carpeta correspondiente de tu proyecto.
+Agregar las dependencias de Firebase:
+
+Abre el archivo package.json de tu proyecto y asegúrate de que las dependencias de Firebase estén listadas allí. Si no lo están, agrega las siguientes dependencias en la sección dependencies:
+
+"dependencies": {
+  // Otras dependencias...
+  "firebase": "^9.0.0" // Asegúrate de utilizar la última versión de Firebase.
+}
+
+Luego, ejecuta npm install nuevamente para asegurarte de que las nuevas dependencias se instalen.
+Inicializar Firebase en tu aplicación:
+
+En el código de tu aplicación, asegúrate de inicializar Firebase con el archivo de configuración que descargaste. Puedes hacerlo en el punto de inicio de tu aplicación. Aquí tienes un ejemplo en JavaScript:
+
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+
+const firebaseConfig = {
+  apiKey: "tu-api-key",
+  authDomain: "tu-auth-domain",
+  projectId: "tu-project-id",
+  storageBucket: "tu-storage-bucket",
+  messagingSenderId: "tu-messaging-sender-id",
+  appId: "tu-app-id"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+Reglas de seguridad de Firebase:
+
+Configura las reglas de seguridad en Firebase Console para asegurar que tu base de datos esté protegida adecuadamente. Las reglas de seguridad son esenciales para restringir el acceso no autorizado a tus datos.
 
