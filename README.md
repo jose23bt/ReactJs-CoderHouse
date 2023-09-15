@@ -68,6 +68,7 @@ La aplicación estará disponible en tu navegador web en la dirección http://lo
 Mapa de los componentes dentro de la app:
 ![Captura de pantalla 2023-09-14 150510](https://github.com/jose23bt/ReactJs-CoderHouse/assets/117915069/f50393e7-7646-4be4-9cd7-f5f89f043411)
 
+
 Configuración de Firebase (Base de Datos):
 
 Este proyecto utiliza Firebase como base de datos para almacenar y gestionar información importante. Para configurar Firebase en tu proyecto, sigue estos pasos:
