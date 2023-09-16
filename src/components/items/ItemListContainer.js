@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { db } from '../../firebase';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import ContentLoader from 'react-content-loader';
-import Greeting from './Greeting';
+import HeroSection from './HeroSection';
 
 const ItemListContainer = () => {
     const { darkMode } = useContext(ThemeContext);
@@ -92,7 +92,7 @@ const ItemListContainer = () => {
 
     return (
         <div className={darkMode ? "bg-dark text-white" : ""}>
-            <Greeting />
+            <HeroSection />
             {renderTitle()}
             {loading ? (
                 <div className="d-flex flex-wrap justify-content-center align-items-center">

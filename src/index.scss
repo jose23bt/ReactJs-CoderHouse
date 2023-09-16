@@ -109,7 +109,7 @@
 .greeting-container {
   position: relative;
   width: 100%;  
-  height: 23vh; /* Ajusta la altura según tus necesidades */
+  height: 30vh; /* Ajusta la altura según tus necesidades */
   overflow: hidden;
   
 }
@@ -147,14 +147,18 @@
   h1 {
     text-transform: uppercase; 
     font-weight: bold; 
-    margin-bottom: 20px; 
+    margin-bottom: 50px; 
   }
 }
 
 
+.hero-section {
+  /* Estilos para el componente HeroSection, si es necesario */
+}
+
 /* Estilos para la barra de búsqueda */
 .search-bar {
-  margin-top: 20px; /* Ajusta el margen superior según tus necesidades */
+  position: relative;
   display: flex;
   align-items: center;
 }
@@ -162,33 +166,64 @@
 /* Estilos para la entrada de texto y el botón de búsqueda */
 input[type="text"] {
   padding: 10px;
-  width: 200px; /* Ajusta el ancho de la entrada de texto según tus necesidades */
+  width: 200px;
 }
 
 button {
-  margin-left: 10px; /* Espacio entre la entrada de texto y el botón de búsqueda */
   padding: 10px 20px;
-  background-color: #007bff; /* Color de fondo del botón */
-  color: white; /* Color del texto del botón */
+  background-color: #dc3545;
+  color: white;
   border: none;
   cursor: pointer;
 }
 
-//gradiantes de texo
-
-.gradient-text {
-  background-image: linear-gradient(45deg, #0070f3, #8a2be2, #800080);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: gradientAnimation 3s linear infinite alternate;
+/* Estilos para las sugerencias de autocompletado */
+.autocomplete-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1; /* Asegura que las sugerencias estén por encima de otros elementos */
 }
 
-@keyframes gradientAnimation {
-  0% {
-      background-position: 0% 50%;
-  }
-  100% {
-      background-position: 100% 50%;
-  }
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+/* Estilos para las sugerencias de autocompletado */
+.autocomplete-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+/* Estilo para el texto de la sugerencia */
+.suggestion-text {
+  color: black; /* Cambia el color del texto a negro */
 }
