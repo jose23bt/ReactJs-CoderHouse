@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/ReactJs-CoderHouse/static/css/main.664ee5d6.css",
-    "main.js": "/ReactJs-CoderHouse/static/js/main.42c1bf37.js",
+    "main.css": "/ReactJs-CoderHouse/static/css/main.c97beb05.css",
+    "main.js": "/ReactJs-CoderHouse/static/js/main.83762129.js",
     "static/media/mercado.mp4": "/ReactJs-CoderHouse/static/media/mercado.48d1379d3c82b677820a.mp4",
     "index.html": "/ReactJs-CoderHouse/index.html",
-    "main.664ee5d6.css.map": "/ReactJs-CoderHouse/static/css/main.664ee5d6.css.map",
-    "main.42c1bf37.js.map": "/ReactJs-CoderHouse/static/js/main.42c1bf37.js.map"
+    "main.c97beb05.css.map": "/ReactJs-CoderHouse/static/css/main.c97beb05.css.map",
+    "main.83762129.js.map": "/ReactJs-CoderHouse/static/js/main.83762129.js.map"
   },
   "entrypoints": [
-    "static/css/main.664ee5d6.css",
-    "static/js/main.42c1bf37.js"
+    "static/css/main.c97beb05.css",
+    "static/js/main.83762129.js"
   ]
 }
